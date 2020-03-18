@@ -1,23 +1,14 @@
-# -*- coding: utf-8 -*-
-"""
-    Setup file for json2obj.
-    Use setup.cfg to configure your project.
-
-    This file was generated with PyScaffold 3.2.3.
-    PyScaffold helps you to put up the scaffold of your new Python project.
-    Learn more under: https://pyscaffold.org/
-"""
-import sys
-
-from pkg_resources import VersionConflict, require
+import os
 from setuptools import setup
 
-try:
-    require('setuptools>=38.3')
-except VersionConflict:
-    print("Error: version of setuptools is too old (<38.3)!")
-    sys.exit(1)
+min_version = os.getenv('MIN_VER', '0')
 
-
-if __name__ == "__main__":
-    setup(use_pyscaffold=True)
+setup(name='json2obj',
+      version=f'1.0.{min_version}',
+      description='json2obj',
+      url='https://git.autodesk.com/AutoCAD-CI/json2obj',
+      author='AutoCAD CI Team',
+      author_email='autocad.ci@autodesk.com',
+      license='ADSK',
+      packages=['src'],
+      zip_safe=False)
